@@ -34,7 +34,7 @@ console.log(
 let radius = 5;
 // The calculation of the (area) containing the plants is 79
 const area = PI * radius * radius;
-console.log(`The area which contains the plants is ${Math.floor(area)}`);
+console.log(`The area which contains the plants is ${area}`);
 /**********************************************************************/
 
 /**********************************************************************/
@@ -42,11 +42,7 @@ console.log(`The area which contains the plants is ${Math.floor(area)}`);
 const squareMeters = 0.8;
 // The calculation of the minimum (area) that each plant require is 3
 const area4OnePlant = PI * squareMeters;
-console.log(
-  `The size of the area that each plant requires is ${Math.floor(
-    area4OnePlant
-  )}`
-);
+console.log(`The minimum area that each plant requires is ${area4OnePlant}`);
 /**********************************************************************/
 
 /**********************************************************************/
@@ -55,9 +51,7 @@ let currentAmountOfPlants = 20;
 // The calculation of the (area) that twenty plant require is 51
 const currentArea4TwentyPlants = currentAmountOfPlants * area4OnePlant;
 console.log(
-  `The size of the area that twenty plants require is ${Math.floor(
-    currentArea4TwentyPlants
-  )}`
+  `The size of the area that twenty plants require is ${currentArea4TwentyPlants}`
 );
 /**********************************************************************/
 // The plants size double in number every week
@@ -76,13 +70,7 @@ while (count <= weeks) {
   let newAmountOfPlants = currentAmountOfPlants * count;
   const currentArea4TwentyPlants = newAmountOfPlants * area4OnePlant;
   console.log(
-    `The predicted plant growth after week ${count} is ${Math.floor(
-      newAmountOfPlants
-    )} and the area that ${Math.floor(
-      newAmountOfPlants
-    )} plants requires is ${Math.floor(
-      currentArea4TwentyPlants
-    )} square meters.`
+    `The predicted plant growth after week ${count} is ${newAmountOfPlants} and the area that ${newAmountOfPlants} plants requires is ${currentArea4TwentyPlants} square meters.`
   );
   count++;
 }
@@ -95,29 +83,68 @@ console.log(
   "=================== Plant Pruned For 4 weeks ====================="
 );
 let currentAreaPercentage4Plants = area * 0.8;
-const weeksb = 4;
-let countb = 1;
+const weeksB = 4;
+let countB = 1;
 
 console.log(
-  `80% of ${Math.floor(area)} square meters is ${Math.floor(
-    currentAreaPercentage4Plants
-  )} quare meters.`
+  `80% of ${area} square meters is ${currentAreaPercentage4Plants} square meters.`
 );
 
-while (countb <= weeks) {
-  let newAmountOfPlants = currentAmountOfPlants * countb;
+while (countB <= weeksB) {
+  let newAmountOfPlants = currentAmountOfPlants * countB;
   const currentArea4TwentyPlants = newAmountOfPlants * area4OnePlant;
   if (currentArea4TwentyPlants > currentAreaPercentage4Plants) {
     console.log(
-      `After week ${countb} the amount of ${Math.floor(
-        newAmountOfPlants
-      )} plants covers the area of ${Math.floor(
-        currentArea4TwentyPlants
-      )} square meters which is greater than 80% of capacity`
+      `After week ${countB} the amount of ${newAmountOfPlants} plants covers the area of ${currentArea4TwentyPlants} square meters which is greater than 80% of capacity`
     );
     break;
   }
-  countb++;
+  countB++;
+}
+
+console.log(
+  "==================================================================="
+);
+/**********************************************************************/
+/**********************************************************************/
+console.log(
+  "=================== Monitor Plants For 4 weeks ====================="
+);
+let area4EightyPercent = area * 0.8;
+let area4FiftyPercent = area * 0.5;
+const weeksC = 4;
+let countC = 1;
+
+console.log(
+  `80% of ${Math.floor(area)} square meters is ${Math.floor(
+    area4EightyPercent
+  )} square meters.`
+);
+console.log(
+  `50% of ${Math.floor(area)} square meters is ${Math.floor(
+    area4FiftyPercent
+  )} square meters.`
+);
+
+while (countC <= weeks) {
+  let newAmountOfPlantsC = currentAmountOfPlants * countC;
+  const currentArea4TwentyPlants = newAmountOfPlantsC * area4OnePlant;
+  if (
+    currentArea4TwentyPlants > area4FiftyPercent &&
+    currentArea4TwentyPlants < area4EightyPercent
+  ) {
+    console.log(
+      `After week ${countC} the amount of ${Math.floor(
+        newAmountOfPlantsC
+      )} plants covers the area between ${Math.floor(
+        area4FiftyPercent
+      )} and ${Math.floor(
+        area4EightyPercent
+      )} square meters which is between 50% and 80% of capacity`
+    );
+    break;
+  }
+  countC++;
 }
 
 console.log(
